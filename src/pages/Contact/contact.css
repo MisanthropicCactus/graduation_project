@@ -1,0 +1,410 @@
+/* C:\Users\aimen\car-rental\src\pages\Contact\contact.css */
+
+/* C:\Users\aimen\car-rental\src\pages\Contact\contact.css */
+
+/* Global Styling - Thème Location Voiture (Updated to match AddCar) */
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(
+          135deg,
+          rgba(245, 247, 250, 0.95) 0%,
+          rgba(26, 41, 128, 0.95) 100%
+      ),
+      url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+      no-repeat center center;
+  background-size: cover;
+  background-blend-mode: overlay;
+  padding: 40px 20px;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.contact-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px 0;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: grid; /* Use grid layout */
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 30px; /* Space between columns */
+}
+
+.contact-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  grid-column: 1 / 3; /* Span both columns */
+}
+
+.contact-header::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff416c, #1a2980);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.contact-header h2 {
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, #1a2980, #ff416c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 15px 0 5px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.header-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.header-icon {
+  font-size: 2.8rem;
+  color: #ff416c;
+  background: white;
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(255, 65, 108, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Form Styles (Match AddCar) */
+.contact-form {
+  width: 100%;
+  grid-column: 1 / 2; /* Occupy the first column */
+}
+
+.form-columns {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.form-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+input,
+textarea,
+select {
+  padding: 14px 18px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #f9f9f9;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #1a2980;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(26, 41, 128, 0.1);
+  transform: translateY(-2px);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.form-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.submit-button,
+.return-button {
+  flex: 1;
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 65, 108, 0.3);
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #e03a63 0%, #e0442b 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 65, 108, 0.4);
+}
+
+.submit-button:active {
+  transform: translateY(1px);
+}
+
+.return-button {
+  background-color: white;
+  color: #666;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.return-button:hover {
+  background-color: #f8f8f8;
+  border-color: #ccc;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Contact Info Section - Showroom Style */
+.contact-info {
+  grid-column: 2 / 3; /* Occupy the second column */
+}
+
+.info-header {
+  margin-bottom: 30px;
+}
+
+.info-header h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background: #e67e22;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-intro {
+  color: #34495e;
+  margin-bottom: 50px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact-item:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-icon {
+  color: #2a9d8f;
+  font-size: 30px;
+  min-width: 30px;
+  transition: all 0.3s ease;
+}
+
+/* ... (previous CSS code) ... */
+
+.contact-item:hover .contact-icon {
+  color: #e67e22;
+  transform: scale(1.1);
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 8px;
+  display: inline-block;
+  min-width: 70px;
+}
+
+.contact-text {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.contact-container {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.contact-details .contact-item {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.contact-details .contact-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.contact-details .contact-item:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.contact-details .contact-item:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.contact-details .contact-item:nth-child(4) {
+  animation-delay: 0.7s;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .contact-container {
+      grid-template-columns: 1fr; /* Stack columns */
+      padding: 30px;
+      gap: 25px;
+  }
+
+  .contact-form {
+      grid-column: 1 / 2; /* Full width on single column */
+  }
+
+  .contact-info {
+      grid-column: 1 / 2; /* Full width on single column */
+  }
+
+  .form-columns {
+      flex-direction: column;
+      gap: 25px;
+  }
+
+  .contact-header h2 {
+      font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-container {
+      padding: 25px;
+      border-radius: 15px;
+  }
+
+  .form-actions {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .submit-button,
+  .return-button {
+      width: 100%;
+      padding: 15px;
+  }
+
+  .contact-header h2 {
+      font-size: 1.8rem;
+  }
+
+  .header-icon {
+      width: 70px;
+      height: 70px;
+      font-size: 2.2rem;
+  }
+
+  input,
+  textarea,
+  select {
+      padding: 12px 15px;
+  }
+}

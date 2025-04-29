@@ -1,0 +1,1008 @@
+/* C:\Users\aimen\car-rental\src\pages\AdminApproval\adminApproval.css */
+/* C:\Users\aimen\car-rental\src\pages\AdminApproval\adminApproval.css */
+/* --- Variables CSS (portée limitée à admin-dashboard) --- */
+.admin-dashboard {
+    --primary: #0062cc;
+    --primary-light: #4a90e2;
+    --primary-dark: #004a99;
+    --secondary: #2c3e50;
+    --accent: #ff9800;
+    --light: #f5f7fa;
+    --white: #ffffff;
+    --dark: #34495e;
+    --success: #27ae60;
+    --success-dark: #219a52;
+    --danger: #e74c3c;
+    --danger-dark: #c0392b;
+    --gray-light: #f8f9fa;
+    --gray: #e9ecef;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+    /* --- Styles de Base du Dashboard --- */
+    background-color: var(--light);
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* --- Header du Dashboard --- */
+  .admin-dashboard .dashboard-header {
+    background: linear-gradient(to right, #1a2980, #26d0ce);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+  }
+  
+  .admin-dashboard .dashboard-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .admin-dashboard .dashboard-icon {
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .admin-dashboard .dashboard-title h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .admin-dashboard .dashboard-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .admin-dashboard .dashboard-user-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden; /* Assure que l'image reste dans le cercle */
+  }
+  
+  .admin-dashboard .admin-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image couvre correctement la zone */
+  }
+  
+  .admin-dashboard .dashboard-user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-dashboard .dashboard-user-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .admin-dashboard .dashboard-logout {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    padding: 0;
+    margin-top: 0.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-align: left;
+  }
+  
+  .admin-dashboard .dashboard-logout:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* --- Layout du Dashboard --- */
+  .admin-dashboard .dashboard-container {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - 70px); /* hauteur de la page moins la hauteur du header */
+  }
+  
+  /* --- Sidebar --- */
+  .admin-dashboard .dashboard-sidebar {
+    background: white;
+    width: 280px;
+    padding: 2rem 0;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 5;
+  }
+  
+  .admin-dashboard .dashboard-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .admin-dashboard .dashboard-menu-item {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    margin-bottom: 0.5rem;
+  }
+  
+  .admin-dashboard .dashboard-menu-item:hover {
+    background-color: var(--gray-light);
+    border-left-color: var(--primary-light);
+  }
+  
+  .admin-dashboard .dashboard-menu-item.active {
+    background-color: #eef5ff;
+    border-left-color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .admin-dashboard .dashboard-menu-icon {
+    font-size: 1.5rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .admin-dashboard .dashboard-menu-text {
+    font-size: 1rem;
+  }
+  
+  /* --- Contenu Principal --- */
+  .admin-dashboard .dashboard-content {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  
+  .admin-dashboard .dashboard-content h2.animated-title {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    margin-bottom: 2rem;
+    position: relative;
+    font-weight: 600;
+    padding-bottom: 10px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: dashboardTitleFadeIn 0.8s ease-out forwards;
+  }
+  
+  .admin-dashboard .dashboard-content h2.animated-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 80px;
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    border-radius: 2px;
+    transform-origin: left;
+    animation: dashboardUnderlineGrow 0.8s ease-out 0.4s forwards;
+  }
+  
+  @keyframes dashboardTitleFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes dashboardUnderlineGrow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  
+  /* --- Liste des Cartes --- */
+  .admin-dashboard .car-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  /* --- Styles pour les cartes de voitures --- */
+  .admin-dashboard .car-card {
+    background: var(--white);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--gray);
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    animation: dashboardCardFadeIn 0.5s ease-out forwards;
+  }
+  
+  .admin-dashboard .car-card::before {
+    content: 'En attente';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-dashboard .car-card:nth-child(1) { animation-delay: 0.3s; }
+  .admin-dashboard .car-card:nth-child(2) { animation-delay: 0.4s; }
+  .admin-dashboard .car-card:nth-child(3) { animation-delay: 0.5s; }
+  .admin-dashboard .car-card:nth-child(4) { animation-delay: 0.6s; }
+  .admin-dashboard .car-card:nth-child(5) { animation-delay: 0.7s; }
+  
+  @keyframes dashboardCardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px) translateX(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) translateX(0);
+    }
+  }
+  
+  .admin-dashboard .car-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: var(--shadow);
+  }
+  
+  /* --- Image Voiture --- */
+  .admin-dashboard .car-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .admin-dashboard .car-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* --- Détails Voiture --- */
+  .admin-dashboard .car-details {
+    flex-grow: 1;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 15px;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-dashboard .car-details h3 {
+    color: var(--secondary);
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.3;
+  }
+  
+  .admin-dashboard .car-details h3::after {
+    content: attr(data-category);
+    background: var(--danger);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .admin-dashboard .car-details p {
+    color: var(--dark);
+    margin: 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+  }
+  
+  .admin-dashboard .car-details p::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: grayscale(50%) opacity(60%);
+  }
+  
+  .admin-dashboard .car-details p:nth-of-type(1)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233498db' viewBox='0 0 24 24'%3E%3Cpath d='M16 4c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm4 18v-6h2.5l-2.54-7.63C19.68 7.55 18.92 7 18.06 7h-.12c-.86 0-1.63.55-1.9 1.37l-.86 2.58c1.08.6 1.82 1.73 1.82 3.05v8h3zm-7.5-10.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zM5.5 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm2 16v-7H9V9c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v6h1.5v7h4zm6.5 0v-4h1v-4c0-.82-.68-1.5-1.5-1.5h-2c-.82 0-1.5.68-1.5 1.5v4h1v4h3z'/%3E%3C/svg%3E");
+  }
+  .admin-dashboard .car-details p:nth-of-type(2)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233498db' viewBox='0 0 24 24'%3E%3Cpath d='M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM18 10c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zM8 18v-4.5H6L10 6v5h2l-4 7z'/%3E%3C/svg%3E");
+  }
+  .admin-dashboard .car-details p:nth-of-type(3)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233498db' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c-4.42 0-8 3.58-8 8 0 1.95.7 3.73 1.86 5.12L4.25 17l1.41 1.41 1.61-1.61C8.84 18.4 10.34 19 12 19c4.42 0 8-3.58 8-8 0-4.42-3.58-8-8-8zm-1 13h2v2h-2v-2zm0-9h2v6h-2V6z'/%3E%3C/svg%3E");
+  }
+  .admin-dashboard .car-details p:nth-of-type(4)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%233498db' viewBox='0 0 24 24'%3E%3Cpath d='M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z'/%3E%3C/svg%3E");
+  }
+  
+  /* Amélioration de la couleur au survol */
+  .admin-dashboard .car-details p:hover::before {
+    filter: grayscale(0%) opacity(100%);
+  }
+  
+  /* --- Bouton Description --- */
+  .admin-dashboard .description-toggle {
+    width: auto;
+    margin: 1rem 0 0;
+    padding: 8px 15px;
+    background: transparent;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    font-size: 0.85rem;
+    align-self: flex-start;
+  }
+  
+  .admin-dashboard .description-toggle:hover {
+    background: var(--gray-light);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+  }
+  
+  .admin-dashboard .description-toggle::after {
+    content: '▼';
+    margin-left: 8px;
+    font-size: 0.7rem;
+    transition: transform var(--transition);
+  }
+  .admin-dashboard .description-toggle.expanded::after {
+    transform: rotate(180deg);
+  }
+  
+  /* --- Zone Description Dépliée --- */
+  .admin-dashboard .car-description {
+    padding: 1rem;
+    margin-top: 0.8rem;
+    background-color: var(--gray-light);
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    position: relative;
+    animation: dashboardFadeInDescription 0.3s ease-out;
+  }
+  
+  @keyframes dashboardFadeInDescription {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .admin-dashboard .car-description p {
+    font-size: 0.85rem;
+    color: var(--dark);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  /* --- Séparateur --- */
+  .admin-dashboard .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gray), transparent);
+    margin: 1.5rem 0;
+    border: none;
+  }
+  
+  /* --- Section Prix --- */
+  .admin-dashboard .price-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-dashboard .price-tag {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    position: relative;
+    padding-left: 16px;
+  }
+  
+  /* Ajout d'un petit symbole euro devant le prix */
+  .admin-dashboard .price-tag::before {
+    content: '€';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1rem;
+    color: var(--primary);
+    opacity: 0.7;
+  }
+  
+  .admin-dashboard .price-tag .per-day {
+    font-size: 0.9rem;
+    color: var(--dark);
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  
+  /* --- Actions Approbation --- */
+  .admin-dashboard .approval-actions {
+    display: flex;
+    gap: 10px;
+    padding: 0;
+  }
+  
+  .admin-dashboard .approve-btn,
+  .admin-dashboard .reject-btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    border: 1px solid transparent;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Effet ripple pour les boutons */
+  .admin-dashboard .approve-btn::after,
+  .admin-dashboard .reject-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+  }
+  
+  .admin-dashboard .approve-btn:active::after,
+  .admin-dashboard .reject-btn:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+  }
+  
+  .admin-dashboard .approve-btn::before {
+    content: '\2714';
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  .admin-dashboard .reject-btn::before {
+    content: '\2716';
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  
+  .admin-dashboard .approve-btn {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+  }
+  .admin-dashboard .approve-btn:hover {
+    background: var(--success-dark);
+    border-color: var(--success-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.2);
+  }
+  
+  .admin-dashboard .reject-btn {
+    background: var(--white);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+  }
+  .admin-dashboard .reject-btn:hover {
+    background: var(--danger);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.2);
+  }
+  
+  /* --- Bouton Retour (masqué avec HeaderAdmin) --- */
+  .admin-dashboard .back-btn {
+    display: none; /* Cacher le bouton retour car il est maintenant dans le header */
+  }
+  
+  /* --- Message si Aucune Voiture --- */
+  .admin-dashboard > p {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin: 2rem auto;
+    color: var(--dark);
+    font-size: 1.1rem;
+    max-width: 600px;
+    animation: dashboardFadeIn 0.5s ease-out;
+  }
+  
+  @keyframes dashboardFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .admin-dashboard > p::before {
+    content: '\1F6C8';
+    display: block;
+    font-size: 4rem;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Ajout d'un compteur d'éléments en attente */
+  .admin-dashboard .count-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--primary);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  /* Styles pour le bouton d'ajout de voiture (masqué avec HeaderAdmin) */
+  .admin-dashboard .admin-actions {
+    display: none; /* Cacher les anciens boutons car ils sont maintenant dans le header */
+  }
+  
+  /* Styles pour les boutons */
+  .admin-dashboard .add-car-btn {
+    background: linear-gradient(135deg, #1a2980, #26d0ce);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(26, 41, 128, 0.3);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .admin-dashboard .add-car-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 41, 128, 0.4);
+    background: linear-gradient(135deg, #1a2980, #2be8e6);
+  }
+  
+  .admin-dashboard .add-car-btn:active {
+    transform: translateY(0);
+  }
+  
+  .admin-dashboard .reservation-btn {
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 1rem;
+  }
+  
+  .admin-dashboard .reservation-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 68, 173, 0.4);
+    background: linear-gradient(135deg, #8e44ad, #af7ac5);
+  }
+  
+  /* Styles pour le formulaire d'ajout admin */
+  .admin-dashboard .admin-add-car-form {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: dashboardFadeIn 0.5s ease-out;
+  }
+  
+  .admin-dashboard .admin-add-car-form h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1a2980;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .admin-dashboard .admin-add-car-form h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #1a2980, #26d0ce);
+  }
+  
+  /* Styles pour le formulaire horizontal à 3 colonnes */
+  .admin-dashboard .add-car-form-horizontal .form-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Styles des champs de formulaire */
+  .admin-dashboard .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .admin-dashboard .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--secondary);
+  }
+  
+  .admin-dashboard .form-group input,
+  .admin-dashboard .form-group select,
+  .admin-dashboard .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+  }
+  
+  .admin-dashboard .form-group input:focus,
+  .admin-dashboard .form-group select:focus,
+  .admin-dashboard .form-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 98, 204, 0.1);
+  }
+  
+  /* Style pour l'aperçu d'image */
+  /* Style pour l'aperçu d'image */
+  .admin-dashboard .file-upload-box {
+    border: 2px dashed var(--gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--gray-light);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .admin-dashboard .file-upload-box:hover {
+    border-color: var(--primary);
+    background: rgba(74, 144, 226, 0.05);
+  }
+  
+  .admin-dashboard .upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary);
+  }
+  
+  .admin-dashboard .upload-placeholder span {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .admin-dashboard .upload-placeholder small {
+    color: var(--dark);
+    opacity: 0.7;
+  }
+  
+  .admin-dashboard .image-preview {
+    max-width: 100%;
+    max-height: 130px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  
+  /* Styles pour les actions du formulaire */
+  .admin-dashboard .form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .admin-dashboard .submit-button,
+  .admin-dashboard .return-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-align: center;
+    border: 1px solid transparent;
+  }
+  
+  .admin-dashboard .submit-button {
+    background: var(--primary);
+    color: white;
+    flex-grow: 1;
+  }
+  
+  .admin-dashboard .submit-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 98, 204, 0.2);
+  }
+  
+  .admin-dashboard .return-button {
+    background: var(--white);
+    color: var(--dark);
+    border: 1px solid var(--gray);
+  }
+  
+  .admin-dashboard .return-button:hover {
+    background: var(--gray-light);
+    transform: translateY(-2px);
+  }
+  
+  /* Style pour l'input prix avec le suffixe */
+  .admin-dashboard .price-input-container {
+    position: relative;
+  }
+  
+  .admin-dashboard .price-input-wrapper {
+    position: relative;
+  }
+  
+  .admin-dashboard .price-suffix {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark);
+    opacity: 0.7;
+    font-size: 0.85rem;
+    pointer-events: none;
+  }
+  
+  /* Styles pour la colonne de formulaire */
+  .admin-dashboard .form-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-dashboard .form-group.full-width {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-dashboard .form-group.full-width textarea {
+    flex-grow: 1;
+    resize: none;
+    min-height: 120px;
+  }
+  
+  /* Media queries pour responsive */
+  @media screen and (max-width: 1024px) {
+    .admin-dashboard .add-car-form-horizontal .form-columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .admin-dashboard .dashboard-container {
+      flex-direction: column;
+    }
+  
+    .admin-dashboard .dashboard-sidebar {
+      width: 100%;
+      padding: 1rem 0;
+    }
+  
+    .admin-dashboard .dashboard-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .admin-dashboard .dashboard-menu-item {
+      margin: 0.25rem;
+      flex: 1 1 auto;
+      min-width: 180px;
+      max-width: calc(50% - 0.5rem);
+    }
+  
+    .admin-dashboard .add-car-form-horizontal .form-columns {
+      grid-template-columns: 1fr;
+    }
+  
+    .admin-dashboard .car-list {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .admin-dashboard .dashboard-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+  
+    .admin-dashboard .dashboard-user {
+      align-self: flex-end;
+    }
+  
+    .admin-dashboard .dashboard-content {
+      padding: 1rem;
+    }
+  
+    .admin-dashboard .dashboard-title h1 {
+      font-size: 1.2rem;
+    }
+  
+    .admin-dashboard .dashboard-menu-item {
+      max-width: 100%;
+    }
+  
+    .admin-dashboard .approval-actions {
+      flex-direction: column;
+    }
+  }
+  
+  /* Animation pour le bouton d'ajout */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(26, 41, 128, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(26, 41, 128, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(26, 41, 128, 0);
+    }
+  }
+  
+  .admin-dashboard .submit-button:focus {
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Styles pour les messages de confirmation */
+  .admin-dashboard .confirmation-message {
+    background: var(--success);
+    color: white;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideFadeIn 0.5s ease-out;
+  }
+  
+  .admin-dashboard .confirmation-message.error {
+    background: var(--danger);
+  }
+  
+  @keyframes slideFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .admin-dashboard .close-message {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .admin-dashboard .close-message:hover {
+    opacity: 1;
+  }

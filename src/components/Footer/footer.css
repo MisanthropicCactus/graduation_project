@@ -1,0 +1,274 @@
+/*C:\Users\aimen\car-rental\src\components\Footer\footer.css*/
+/* src/components/Footer/footer.css */
+.footer {
+  background: linear-gradient(135deg, #1a2a4a 0%, #0d1a2e 100%);
+  color: white;
+  padding: 3rem 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+/* Existing styles remain unchanged */
+
+.footer-logo-text {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem; /* Adjust size as needed */
+  font-weight: 700; /* Bold weight */
+  color: #fff; /* White text color */
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* Add a gradient background behind the text */
+.footer-logo-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9800, #4fc3f7); /* Gradient colors */
+  border-radius: 8px;
+  z-index: -1;
+  padding: 0.5rem; /* Padding to avoid clipping */
+}
+
+/* Optional: Add a subtle shadow effect */
+.footer-logo-text {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for the logo text */
+@media (max-width: 768px) {
+  .footer-logo-text {
+    font-size: 1.8rem; /* Reduce font size for smaller screens */
+  }
+}
+
+
+.footer-description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+.trust-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: #4fc3f7;
+}
+
+.badge-icon {
+  font-size: 1.1rem;
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: white;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #4fc3f7;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.7rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #4fc3f7;
+  transform: translateX(5px);
+}
+
+/* Modifier la taille du cadre de contact rapide */
+.contact-column {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  min-width: 280px; /* Ajouter une largeur minimale */
+  box-sizing: border-box;
+}
+
+/* Améliorer la gestion du texte trop long */
+.contact-info li {
+  display: flex;
+  align-items: flex-start; /* Changer à flex-start pour aligner en haut */
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  word-break: break-word; /* Pour que les mots longs se coupent correctement */
+}
+
+/* Spécifiquement pour l'email */
+.contact-info a {
+  overflow-wrap: break-word; /* Pour que les emails longs se coupent bien */
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%; /* Limite la largeur à celle du conteneur parent */
+}
+
+.contact-icon {
+  color: #4fc3f7;
+  font-size: 1rem;
+}
+
+.contact-info a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #4fc3f7;
+  text-decoration: underline;
+}
+
+.opening-hours {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.payment-methods {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.payment-icons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.payment-icon {
+  width: 40px;
+  height: 25px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.payment-icon:hover {
+  transform: scale(1.1);
+}
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.legal-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+  color: #4fc3f7;
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+  }
+  
+  .footer-column {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .contact-column {
+    padding: 1.4rem;
+  }
+  
+  .legal-links {
+    gap: 0.8rem 1.2rem;
+  }
+
+  .payment-methods {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-logo {
+    width: 200px; /* Ajuster la taille pour les petits écrans */
+  }
+
+}

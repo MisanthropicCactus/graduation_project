@@ -1,0 +1,172 @@
+/*C:\Users\aimen\car-rental\src\pages\Vehicule\vehicule.css*/
+:root {
+  --primary-color: #00b0ff;
+  --secondary-color: #f0f9ff;
+  --text-color: #333;
+  --light-gray: #eee;
+  --white: #fff;
+  --border-radius: 8px;
+}
+
+.vehicule-page {
+  min-height: 100vh;
+  background-color: var(--secondary-color);
+}
+
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style pour les filtres */
+.simple-filter-container {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-button {
+  background-color: var(--light-gray);
+  color: #444;
+  padding: 6px 15px;
+  border-radius: 16px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.category-button:hover, .category-button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Style pour la liste de voitures */
+.car-list-container {
+  padding: 20px 0;
+}
+
+.car-list-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* Style pour les cartes de voitures */
+.car-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.car-card.selected {
+  border: 2px solid var(--primary-color);
+}
+
+.check-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.car-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.car-details {
+  padding: 15px;
+}
+
+.car-name {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.car-specs {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.car-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.price-period {
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+  .car-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .car-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .car-list-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .category-filters {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    flex-wrap: nowrap;
+  }
+  
+  .category-button {
+    white-space: nowrap;
+  }
+}

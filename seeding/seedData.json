@@ -1,0 +1,109 @@
+{
+    "users": [
+      {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com",
+        "password": "drowssap1234", 
+        "phone": "+33 1 23 45 67 89"
+      },
+      {
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "email": "jane.smith@example.com",
+        "password": "sappdrow5678",
+        "phone": "+33 1 98 76 54 32"
+      },
+      {
+        "first_name": "Wassim",
+        "last_name": "Hamoud",
+        "email": "wassimmm@hotmail.com",
+        "password": "pawossrd1357",
+        "phone": "+33 1 23 45 67 89"
+      }
+    ],
+    "cars": [
+      {
+        "name": "Audi S5",
+        "category": "Sport",
+        "price": 35.00,
+        "image": "/images/cars/1.jpg",
+        "seats": 5,
+        "fuel_type": "Essence",
+        "transmission": "Automatique",
+        "type": "Coupé",
+        "description": "L'Audi S5 est un coupé sportif qui allie puissance et élégance."
+      },
+      {
+        "name": "BMW M3 CS",
+        "category": "Sport",
+        "price": 65.00,
+        "image": "/images/cars/2.jpg",
+        "seats": 5,
+        "fuel_type": "Essence",
+        "transmission": "Automatique",
+        "type": "Berline",
+        "description": "La BMW M3 CS est une berline sportive d’exception."
+      },
+      {
+        "name": "BMW X5",
+        "category": "Premium",
+        "price": 95.00,
+        "image": "/images/cars/3.jpg",
+        "seats": 5,
+        "fuel_type": "Hybride",
+        "transmission": "Automatique",
+        "type": "SUV",
+        "description": "Le BMW X5 est un SUV premium combinant luxe, puissance et polyvalence."
+      },
+      {
+        "name": "VW Polo 2019",
+        "category": "Économique",
+        "price": 30.00,
+        "image": "/images/cars/4.jpg",
+        "seats": 4,
+        "fuel_type": "Essence",
+        "transmission": "Manuelle",
+        "type": "Citadine",
+        "description": "La Volkswagen Polo 2019 est une citadine compacte offrant un excellent rapport qualité-prix."
+      },
+      {
+        "name": "Porsche Macan",
+        "category": "Premium",
+        "price": 120.00,
+        "image": "/images/cars/5.jpg",
+        "seats": 5,
+        "fuel_type": "Essence",
+        "transmission": "Automatique",
+        "type": "SUV",
+        "description": "Le Porsche Macan est un SUV sportif alliant performances et luxe."
+      },
+      {
+        "name": "Toyota Corolla",
+        "category": "Confort",
+        "price": 55.00,
+        "image": "/images/cars/6.jpg",
+        "seats": 5,
+        "fuel_type": "Hybride",
+        "transmission": "Automatique",
+        "type": "Berline",
+        "description": "La Toyota Corolla hybride est une berline fiable et économique."
+      }
+    ],
+    "reservations": [
+      {
+        "user_id": 1,
+        "car_id": 2,
+        "reception_date": "2023-10-01",
+        "return_date": "2023-10-05",
+        "location" : "Guelma, Algeria"
+      },
+      {
+        "user_id": 2,
+        "car_id": 3,
+        "reception_date": "2023-10-10",
+        "return_date": "2023-10-15",
+        "location" : "Constantine, Algeria"
+      }
+    ]
+  }

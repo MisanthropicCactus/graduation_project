@@ -1,0 +1,185 @@
+/*C:\Users\aimen\car-rental\src\components\HeaderAdmin\HeaderAdmin.css*/
+/* C:\Users\aimen\car-rental\src\components\HeaderAdmin\HeaderAdmin.css */
+.admin-header {
+    background: linear-gradient(to right, #1a2980, #26d0ce);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 2rem;
+  }
+  
+  .admin-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .admin-icon {
+    font-size: 1.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .admin-logo h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .admin-nav {
+    flex-grow: 1;
+    margin: 0 3rem;
+  }
+  
+  .admin-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .admin-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .admin-nav-item.active {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .admin-nav-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .admin-nav-icon {
+    font-size: 1.2rem;
+  }
+  
+  .admin-nav-text {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  .admin-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .admin-user-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .admin-user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-user-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .admin-logout {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    padding: 0;
+    margin-top: 0.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-align: left;
+  }
+  
+  .admin-logout:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .admin-nav-text {
+      font-size: 0.85rem;
+    }
+    
+    .admin-nav-item {
+      padding: 0.6rem 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin-header {
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+    }
+    
+    .admin-nav {
+      margin: 0.5rem 0;
+      width: 100%;
+    }
+    
+    .admin-nav ul {
+      flex-wrap: wrap;
+    }
+    
+    .admin-nav-item {
+      flex: 1;
+      min-width: 120px;
+      justify-content: center;
+      margin: 0.3rem;
+      padding: 0.6rem 0.8rem;
+    }
+    
+    .admin-user {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .admin-logo h1 {
+      font-size: 1.2rem;
+    }
+    
+    .admin-nav-item {
+      flex-direction: column;
+      text-align: center;
+      min-width: 80px;
+      gap: 0.3rem;
+    }
+    
+    .admin-nav-text {
+      font-size: 0.7rem;
+    }
+  }

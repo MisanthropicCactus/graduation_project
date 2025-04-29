@@ -1,0 +1,975 @@
+/* src/pages/Home/Home.css */
+/* src/pages/Home/Home.css */
+:root {
+  --primary-color: #2a9d8f;
+  --primary-hover: #21867a;
+  --primary-light: rgba(42, 157, 143, 0.1);
+  --secondary-color: #f8f9fa;
+  --dark-color: #264653;
+  --light-color: #ffffff;
+  --text-color: #495057;
+  --text-light: #6c757d;
+  --radius: 12px;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Base Styles */
+.home-page {
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  min-height: 800px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url('/images/Background/background.png'); /* Background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(10, 30, 50, 0.85) 0%, 
+    rgba(5, 15, 25, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  /* Modification: Suppression de backdrop-filter et utilisation d'un arrière-plan plus opaque */
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 1s ease;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right, #ffffff, #e0f7fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  animation: fadeInUp 1s ease 0.4s forwards;
+  opacity: 0;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 15px rgba(42, 157, 143, 0.4);
+}
+
+.cta-button.primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(42, 157, 143, 0.6);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: var(--light-color);
+  border: 2px solid var(--light-color);
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.cta-button.large {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.mouse-icon {
+  width: 30px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  opacity: 0;
+  animation: fadeIn 1s ease 1s forwards;
+}
+
+.wheel {
+  width: 4px;
+  height: 8px;
+  background-color: white;
+  border-radius: 2px;
+  animation: scrollWheel 2s infinite;
+}
+
+/* Value Proposition Section */
+.value-section {
+  padding: 8rem 0;
+  background-color: var(--light-color);
+  position: relative;
+}
+
+/* Modification: Suppression du pseudo-élément before de la section value */
+.value-section::before {
+  display: none;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.value-card {
+  background: var(--light-color);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.value-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.value-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.value-card p {
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+/* Offers Section - Updated */
+.offers-section {
+  padding: 6rem 0;
+  background-color: var(--secondary-color);
+  position: relative;
+}
+
+/* Modification: Suppression du pseudo-élément before de la section offers */
+.offers-section::before {
+  display: none;
+}
+
+.offers-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.offers-badge {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offers-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.offers-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 1rem auto 0;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.offer-card {
+  background: var(--light-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.offer-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.offer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.offer-card:hover .offer-image img {
+  transform: scale(1.05);
+}
+
+.offer-content {
+  padding: 1.5rem;
+}
+
+.offer-category {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.offer-category::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+.offer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.offer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background: rgba(42, 157, 143, 0.05); 
+  border-radius: calc(var(--radius) - 4px);
+}
+
+.offer-provider {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.offer-price {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.offers-cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* About Section - Updated for two founders */
+.about-section {
+  padding: 8rem 0;
+  background-color: var(--secondary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Updated styling for founders section */
+.founders-images {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.founder-column {
+  flex: 1;
+  position: relative;
+}
+
+.image-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+}
+
+.founders-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.founders-images img:hover {
+  transform: scale(1.03);
+}
+
+.founder-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  background: var(--primary-color);
+  color: var(--light-color);
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  max-width: 200px;
+  z-index: 2;
+}
+
+.founder-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.founder-title {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  display: block;
+}
+
+.about-text {
+  padding: 2rem 0;
+}
+
+.section-subtitle {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  margin-top: 1rem;
+}
+
+.highlight-text {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.highlight-text::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 4rem;
+  color: var(--primary-color);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.about-features {
+  margin-top: 2rem;
+  list-style: none;
+}
+
+.about-features li {
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.about-features li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+  color: var(--light-color);
+  text-align: center;
+  position: relative;
+}
+
+/* On garde le pseudo-élément before pour la section stats comme demandé */
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: var(--secondary-color);
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  padding: 2rem;
+  position: relative;
+}
+
+.stat-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--light-color);
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 8rem 0;
+  background-color: var(--light-color);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  background: var(--light-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.testimonial-content {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.rating {
+  color: #FFD700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.testimonial-content p {
+  font-style: italic;
+  line-height: 1.7;
+  position: relative;
+}
+
+.testimonial-content p::before,
+.testimonial-content p::after {
+  content: '"';
+  font-size: 2rem;
+  color: var(--primary-color);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  line-height: 0;
+}
+
+.testimonial-content p::before {
+  margin-right: 5px;
+  vertical-align: -15px;
+}
+
+.testimonial-content p::after {
+  margin-left: 5px;
+  vertical-align: -15px;
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.client-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.client-info h4 {
+  margin-bottom: 0.2rem;
+  color: var(--dark-color);
+}
+
+.client-info span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 6rem 0;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-section {
+    background-attachment: scroll;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content {
+    padding: 2rem 1.5rem;
+  }
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .founders-images {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section-title, .offers-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 700px;
+    background-position: 60% center;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .section-title, .offers-title {
+    font-size: 2rem;
+  }
+  .value-grid,
+  .testimonials-grid,
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .founders-images {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .founder-column {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: 600px;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  .founder-badge {
+    left: 15px;
+    padding: 0.8rem;
+  }
+  .highlight-text {
+    font-size: 1.3rem;
+    padding-left: 1.5rem;
+  }
+  .highlight-text::before {
+    font-size: 3rem;
+    top: -5px;
+  }
+  .offer-category {
+    font-size: 1.3rem;
+  }
+}
+
+/* Ajout d'une animation pour le fadeIn manquant */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ==================== */
+/* Animations supplémentaires */
+/* ==================== */
+
+/* Effet de pulse au survol */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Effet de tremblement */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Effet de flottement */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Effet de rotation */
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Effet de rebond */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-20px);}
+  60% {transform: translateY(-10px);}
+}
+
+/* ==================== */
+/* Applications des animations */
+/* ==================== */
+
+/* Animation au survol des cartes */
+.value-card:hover,
+.offer-card:hover,
+.testimonial-card:hover {
+  animation: pulse 0.5s ease;
+}
+
+/* Animation au survol des boutons */
+.cta-button:hover {
+  animation: bounce 0.5s;
+}
+
+/* Animation au survol des images */
+.offer-image:hover img,
+.founders-images img:hover {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animation au survol des icônes */
+.value-icon:hover {
+  animation: rotate 1s ease;
+}
+
+/* Animation au survol des éléments de stats */
+.stat-item:hover {
+  animation: shake 0.5s ease;
+}
+
+/* Animation subtile au survol des éléments de liste */
+.about-features li:hover {
+  transform: translateX(10px);
+  transition: transform 0.3s ease;
+}
+
+/* Animation au survol du badge du fondateur */
+.founder-badge:hover {
+  animation: pulse 0.5s ease infinite;
+}
+
+/* Animation au survol des éléments d'agence */
+.agency-item:hover {
+  animation: pulse 0.3s ease;
+  background: rgba(42, 157, 143, 0.1);
+}
+
+/* Animation au survol du rating */
+.rating:hover {
+  animation: shake 0.5s ease;
+}
+
+/* ==================== */
+/* Transitions supplémentaires */
+/* ==================== */
+
+/* Transition douce pour tous les éléments interactifs */
+.cta-button,
+.value-card,
+.offer-card,
+.testimonial-card,
+.offer-image img,
+.founders-images img,
+.value-icon,
+.stat-item,
+.agency-item,
+.founder-badge {
+  transition: all 0.3s ease;
+}
+
+/* Transition spécifique pour les ombres */
+.value-card,
+.offer-card,
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Transition pour les images */
+.offer-image img,
+.founders-images img {
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}

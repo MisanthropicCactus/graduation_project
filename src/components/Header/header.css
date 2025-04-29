@@ -1,0 +1,228 @@
+/* src/components/Header/Header.css */
+/* Header.css */
+.header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.7rem 1.5rem;
+}
+
+/* Logo et titre */
+.logo-title {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0062cc;
+}
+
+/* Navigation principale */
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #0062cc;
+}
+
+.nav-link.active {
+  color: #0062cc;
+  font-weight: 600;
+}
+
+/* Boutons d'action */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+}
+
+.nav-button.login {
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.nav-button.login:hover {
+  border-color: #0062cc;
+  color: #0062cc;
+}
+
+.nav-button.signup {
+  background-color: #0062cc;
+  color: white;
+}
+
+.nav-button.signup:hover {
+  background-color: #004a99;
+}
+
+.nav-button.admin-link {
+  background-color: #ff9800;
+  color: white;
+}
+
+.nav-button.admin-link:hover {
+  background-color: #f57c00;
+}
+
+/* Bouton menu mobile */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  padding: 0.5rem;
+}
+
+/* Icône de panier */
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.cart-img {
+  width: 23px;
+  height: 23px;
+}
+
+.cart-icon:hover .cart-img,
+.cart-icon:focus .cart-img {
+  color: #0062cc;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ff3333;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  min-width: 18px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .action-buttons {
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .app-title {
+    font-size: 1.3rem;
+  }
+  
+  .navigation {
+    position: fixed;
+    top: 60px; /* Hauteur approximative du header */
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+  
+  .navigation.show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 0.8rem 0;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+  }
+  
+  .nav-button, .cart-icon {
+    width: 100%;
+    justify-content: center;
+    margin: 0.3rem 0;
+  }
+}

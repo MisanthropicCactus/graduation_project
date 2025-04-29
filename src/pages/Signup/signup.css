@@ -1,0 +1,775 @@
+/* src/pages/Login/login.css */
+/* src/pages/Signup/signup.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.signup-page {
+  --signup-primary-color: #ff4d00;
+  --signup-primary-hover: #e64500;
+  --signup-secondary-color: #f0f3f8;
+  --signup-accent-color: #0060cf;
+  --signup-text-color: #333333;
+  --signup-border-radius: 0.75rem;
+  --signup-transition-speed: 0.3s;
+  --signup-box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --signup-car-primary: #2c3e50;
+  --signup-car-secondary: #95a5a6;
+  --signup-road-color: #34495e;
+  --signup-dashboard-color: #2c3e50;
+}
+
+/* Base styles */
+.signup-page {
+  min-height: 100vh;
+  background-color: var(--signup-secondary-color);
+  background-image: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 243, 248, 0.9)),
+    url('/assets/images/road-background.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Road animation */
+.signup-page .road-animation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--signup-road-color);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.signup-page .road-line {
+  position: absolute;
+  width: 80px;
+  height: 10px;
+  background-color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: moveRoadLine 2s infinite linear;
+}
+
+.signup-page .road-line:nth-child(1) { left: 10%; }
+.signup-page .road-line:nth-child(2) { left: 40%; }
+.signup-page .road-line:nth-child(3) { left: 70%; }
+
+@keyframes moveRoadLine {
+  0% { left: -80px; }
+  100% { left: 100%; }
+}
+
+/* Container and Card */
+.signup-page .signup-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  perspective: 1000px;
+  position: relative;
+  z-index: 2;
+}
+
+.signup-page .signup-card {
+  background-color: white;
+  border-radius: var(--signup-border-radius);
+  box-shadow: var(--signup-box-shadow);
+  width: 100%;
+  max-width: 900px;
+  padding: 3rem;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  position: relative;
+}
+
+/* Dashboard decoration */
+.signup-page .dashboard-decoration {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background-color: var(--signup-dashboard-color);
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.signup-page .speedometer {
+  width: 80px;
+  height: 80px;
+  background-color: #ecf0f1;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.signup-page .speedometer-dial {
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+    from 135deg,
+    #e74c3c 0%,
+    #f39c12 40%,
+    #2ecc71 80%,
+    #2ecc71 100%
+  );
+  border-radius: 50%;
+  clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 50% 0%);
+}
+
+.signup-page .speedometer-needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 2px;
+  background-color: #e74c3c;
+  transform-origin: left center;
+  transform: rotate(45deg);
+  border-radius: 1px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  animation: moveNeedle 5s ease-in-out infinite alternate;
+}
+
+@keyframes moveNeedle {
+  0% { transform: rotate(-120deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(120deg); }
+}
+
+.signup-page .steering-wheel {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 60px;
+  height: 60px;
+  border: 6px solid #34495e;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateWheel 10s ease infinite alternate;
+}
+
+.signup-page .steering-wheel::before, 
+.signup-page .steering-wheel::after {
+  content: '';
+  position: absolute;
+  background-color: #34495e;
+}
+
+.signup-page .steering-wheel::before {
+  width: 6px;
+  height: 40%;
+  border-radius: 3px;
+}
+
+.signup-page .steering-wheel::after {
+  width: 40%;
+  height: 6px;
+  border-radius: 3px;
+}
+
+@keyframes rotateWheel {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-30deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(30deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Header Styles */
+.signup-page .signup-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.signup-page .signup-header h1 {
+  color: var(--signup-primary-color);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.signup-page .tagline {
+  color: #666;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Car Silhouette Animation */
+.signup-page .car-animation-container {
+  margin: 1.5rem auto;
+  width: 150px;
+  height: 60px;
+  position: relative;
+}
+
+.signup-page .car-silhouette {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.signup-page .car-body {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 30px;
+  background-color: var(--signup-primary-color);
+  border-radius: 25px 60px 0 10px;
+}
+
+.signup-page .car-window {
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  width: 50px;
+  height: 20px;
+  background-color: #3498db;
+  border-radius: 10px 25px 0 0;
+}
+
+.signup-page .car-wheel {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 50%;
+  border: 3px solid #7f8c8d;
+  animation: wheelSpin 1s linear infinite;
+}
+
+.signup-page .front-wheel { left: 100px; }
+.signup-page .back-wheel { left: 30px; }
+
+.signup-page .car-light {
+  position: absolute;
+  right: 5px;
+  bottom: 20px;
+  width: 8px;
+  height: 8px;
+  background-color: #f1c40f;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(241, 196, 15, 0.8);
+  animation: lightBlink 1s infinite alternate;
+}
+
+@keyframes wheelSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes lightBlink {
+  0% {
+    opacity: 0.6;
+    box-shadow: 0 0 5px 1px rgba(241, 196, 15, 0.5);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 15px 3px rgba(241, 196, 15, 0.8);
+  }
+}
+
+/* Form Section Titles */
+.signup-page .form-section-title {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--signup-secondary-color);
+}
+
+.signup-page .section-icon {
+  background-color: var(--signup-primary-color);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.75rem;
+}
+
+.signup-page .form-section-title h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--signup-text-color);
+  margin: 0;
+}
+
+/* Form Styles */
+.signup-page .signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.signup-page .form-row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.signup-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.signup-page .form-group label {
+  color: var(--signup-text-color);
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.signup-page .input-with-icon {
+  position: relative;
+}
+
+.signup-page .input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  z-index: 1;
+}
+
+/* Form inputs */
+.signup-page .signup-form input[type="text"],
+.signup-page .signup-form input[type="email"],
+.signup-page .signup-form input[type="tel"],
+.signup-page .signup-form input[type="password"],
+.signup-page .signup-form input[type="date"],
+.signup-page .signup-form select {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.5rem;
+  border: 1px solid #ddd;
+  border-radius: var(--signup-border-radius);
+  font-size: 1rem;
+  transition: all var(--signup-transition-speed) ease;
+  background-color: white;
+}
+
+.signup-page .signup-form input:focus,
+.signup-page .signup-form select:focus {
+  outline: none;
+  border-color: var(--signup-primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 77, 0, 0.15);
+}
+
+/* Select inputs */
+.signup-page .gender-select-container,
+.signup-page .car-select-container {
+  position: relative;
+}
+
+.signup-page .gender-select,
+.signup-page .car-select {
+  appearance: none;
+  width: 100%;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+.signup-page .gender-select-container::after,
+.signup-page .car-select-container::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #aaa;
+  pointer-events: none;
+}
+
+/* Terms Checkbox */
+.signup-page .terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.signup-page .terms-checkbox input[type="checkbox"] {
+  margin-top: 0.25rem;
+  cursor: pointer;
+}
+
+.signup-page .terms-checkbox a {
+  color: var(--signup-primary-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.signup-page .terms-checkbox a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--signup-primary-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.signup-page .terms-checkbox a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Signup Button with Key Icon */
+.signup-page .signup-button {
+  background-color: var(--signup-primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--signup-border-radius);
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--signup-transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-page .signup-button::before {
+  content: '🔑';
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.signup-page .signup-button:hover:not(:disabled) {
+  background-color: var(--signup-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signup-page .signup-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.signup-page .signup-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Ripple effect on button */
+.signup-page .signup-button .ripple {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Social Signup Section */
+.signup-page .social-signup {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.signup-page .social-signup p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.signup-page .social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.signup-page .social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: var(--signup-border-radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--signup-transition-speed) ease;
+}
+
+.signup-page .social-button:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-page .google-button { color: #4285F4; }
+.signup-page .facebook-button { color: #3b5998; }
+
+/* Login Link */
+.signup-page .login-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+.signup-page .login-link a {
+  color: var(--signup-primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+
+.signup-page .animated-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--signup-primary-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.signup-page .animated-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Benefits Section */
+.signup-page .benefits {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: var(--signup-border-radius);
+}
+
+.signup-page .benefits h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--signup-text-color);
+}
+
+.signup-page .benefits ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.signup-page .benefits li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: var(--signup-border-radius);
+  transition: all var(--signup-transition-speed) ease;
+}
+
+.signup-page .benefits li:hover {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.signup-page .benefit-icon-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--signup-primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.signup-page .benefit-icon {
+  font-size: 1.25rem;
+  color: white;
+}
+
+.signup-page .benefit-content {
+  flex: 1;
+}
+
+.signup-page .benefit-content h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  color: var(--signup-text-color);
+}
+
+.signup-page .benefit-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Car Decoration */
+.signup-page .bottom-car {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 40px;
+  background-color: var(--signup-primary-color);
+  border-radius: 10px 25px 0 0;
+  z-index: -1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.signup-page .bottom-car::before, 
+.signup-page .bottom-car::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 50%;
+  border: 3px solid #7f8c8d;
+}
+
+.signup-page .bottom-car::before { left: 15px; }
+.signup-page .bottom-car::after { right: 15px; }
+
+/* Loading indicator for submission */
+.signup-page .loading-indicator {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.signup-page .loading .loading-indicator {
+  display: inline-block;
+}
+
+.signup-page .loading .button-text {
+  visibility: hidden;
+}
+
+/* Accessibility Improvements */
+.signup-page input:focus, 
+.signup-page select:focus, 
+.signup-page button:focus {
+  outline: 2px solid var(--signup-accent-color);
+  outline-offset: 2px;
+}
+
+.signup-page .signup-form input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .signup-page .signup-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .signup-page .benefits ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .signup-page .dashboard-decoration {
+    width: 80px;
+    height: 80px;
+    top: -10px;
+    right: -10px;
+  }
+  
+  .signup-page .speedometer {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .signup-page .speedometer-needle {
+    width: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .signup-page .form-row {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .signup-page .signup-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-page .signup-card {
+    padding: 2rem 1rem;
+  }
+  
+  .signup-page .signup-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .signup-page .car-animation-container {
+    width: 120px;
+    height: 50px;
+  }
+  
+  .signup-page .dashboard-decoration {
+    display: none;
+  }
+  
+  .signup-page .social-buttons {
+    flex-direction: column;
+  }
+}
