@@ -5,6 +5,7 @@ const dotenv = require('dotenv').config();
 const { Pool } = require('pg');
 const usersRouter = require('../routes/users.js');
 const carsRouter = require('../routes/cars.js');
+const authRouter = require('../routes/auth.js');
 const reservationsRouter = require('../routes/reservations.js');
 
 const app = express();
@@ -35,6 +36,7 @@ module.exports = pool;
 // Use the users routes
 app.use('/api/users', usersRouter);
 app.use('/api/cars', carsRouter);
+app.use('/api/auth', authRouter);
 app.use('/api/reservations', reservationsRouter);
 
 
